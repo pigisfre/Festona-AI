@@ -1,0 +1,19 @@
+/* Centratura della sfera di particelle */
+.particle-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  /* Adattamento specifico per schermi piccoli */
+  @media (max-width: 768px) {
+    .particle-container {
+      width: 100wv;
+      height: 60vh;
+      margin: 0 auto;
+    }
+  }
+  

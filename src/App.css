@@ -1,0 +1,26 @@
+/* App.css */
+
+.App {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Occupare tutta l'altezza dello schermo */
+  width: 100vw;
+ 
+}
+
+h1 {
+  color: white;
+  margin-bottom: 10px; /* Riduci lo spazio sotto il titolo */
+}
+
+/* Correzioni per il body */
+body {
+  background-color: #000;
+  color: white;
+  margin: 0; /* Rimuovi il margine predefinito */
+ 
+}

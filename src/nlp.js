@@ -1,0 +1,41 @@
+
+
+import { Nlp } from '@nlpjs/nlp';
+
+// Other imports...
+
+
+const manager = new Nlp({ languages: ['it'], nlu: { useNoneFeature: false } });
+
+// Rest of the code, using nlp instead of manager...
+
+// Aggiungi un gestore di intenti per la tua festa
+manager.addDocument('it', 'Quando è la festa?', 'party.date');
+manager.addDocument('it', 'Dove si terrà la festa?', 'party.location');
+manager.addDocument('it', 'Dove è la festa?', 'party.location');
+manager.addDocument('it', 'Qual è il tema della festa?', 'party.theme');
+manager.addDocument('it', 'Ci si deve vestire a tema?', 'party.dressCode');
+manager.addDocument('it', 'Posso vestirmi da Joker?', 'party.noJoker');
+manager.addDocument('it', 'Grazie', 'party.welcome');
+
+manager.addAnswer('it', 'party.date', 'La festa sarà il 20 dicembre alle ore 20:30.');
+manager.addAnswer('it', 'party.location', 'La festa si terrà a Sensorya, SS96, km.114+300, Modugno, Palo del Colle BA.');
+manager.addAnswer('it', 'party.theme', 'Il tema della festa è Pigicon, 30esimo anniversario.');
+manager.addAnswer('it', 'party.dressCode', 'Tutti devono obbligatoriamente travestirsi a tema Marvel, DC o anime!');
+manager.addAnswer('it', 'party.noJoker', 'Spiacente, ma il travestimento da Joker non è consentito. Scegli un altro personaggio!');
+manager.addAnswer('it', 'party.welcome', 'Prego!');
+
+// Add fun responses for unexpected questions
+manager.addAnswer('it', 'None', 'Non sono sicuro, prova a chiedermi qualcosa sulla festa!');
+
+const trainNlp = async () => {
+  await manager.train();
+  manager.save();
+};
+
+trainNlp();
+
+export const getResponse = async (input) => {
+  const response = await manager.process('it', input);
+  return response.answer;
+};
