@@ -11,8 +11,8 @@ const ParticleSphere = ({ isSpeaking }) => {
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     
-    const canvasWidth = window.innerWidth * 0.5; // Imposta a metà larghezza dello schermo
-    const canvasHeight = window.innerHeight * 0.5; // Imposta a metà altezza dello schermo
+    const canvasWidth = window.innerWidth * 0.7; // Imposta a metà larghezza dello schermo
+    const canvasHeight = window.innerHeight * 0.7; // Imposta a metà altezza dello schermo
     renderer.setSize(canvasWidth, canvasHeight);
     renderer.setClearColor(0x000000, 0);
     mountRef.current.appendChild(renderer.domElement);
