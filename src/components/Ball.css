@@ -1,32 +1,28 @@
-.container {
-    position: relative; /* Posizionamento relativo per il contenitore */
-    height: 100vh; /* Altezza della finestra */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
+
+section{
+  display: flex;
+}
+
+.ball{
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  border-radius: 50%;
+}
+
+
+.ball span{
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: inherit;
+  animation: pulseAnimate 4s ease-out infinite;
+}
+
+@keyframes pulseAnimate {
+  100% {
+    opacity: 0;
+    transform: scale(2);
   }
-  
-  .ball {
-    width: 50px; /* Dimensione iniziale della palla */
-    height: 50px;
-    border-radius: 50%; /* Forma circolare */
-    background-color: #3498db; /* Colore della palla */
-    position: relative; /* Posizionamento relativo per la palla */
-    transition: transform 0.3s ease; /* Transizione fluida */
-  }
-  
-  /* Animazione per la distorsione */
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1); /* Dimensione normale */
-    }
-    50% {
-      transform: scale(1.2) rotate(10deg); /* Dimensione aumentata e rotazione */
-    }
-  }
-  
-  .pulsing {
-    animation: pulse 0.5s infinite; /* Applicare l'animazione */
-  }
-  
+
+}
