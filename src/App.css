@@ -9,7 +9,7 @@
   width: 100vw;
   height: 100vh;
   font-family: 'Nunito Sans', sans-serif;
-  overflow: hidden;
+  overflow-y: auto; /* Permetti lo scrolling verticale se necessario */
 }
 
 h1 {
@@ -28,7 +28,7 @@ body {
   padding: 0;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
-  overflow: hidden;
+  overflow-y: auto; /* Permetti lo scrolling verticale se necessario */
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
