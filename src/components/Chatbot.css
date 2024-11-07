@@ -1,89 +1,48 @@
+/* CSS generale per rendere la chatbot responsive */
+/* Impostazioni generali per mantenere il layout entro i limiti dello schermo */
 .chatbot {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra orizzontalmente */
-  justify-content: center; /* Centra verticalmente */
-  width: 400px; /* Limita la larghezza massima per il chatbot */
-  height: 600px;
-  border-radius: 10px; /* Angoli arrotondati */
-  padding: 20px; /* Padding per evitare che il contenuto tocchi i bordi */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Aggiungi un'ombra per evidenziare il chatbot */
-}
-
-  /* From Uiverse.io by mpody11 */ 
-.messageBox {
-  width: fit-content;
-  height: 40px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1e1e1e;
-  padding: 0 15px;
+  width: 100vw;  /* Usa tutta la larghezza della viewport */
+  max-width: 400px; /* Limita la larghezza al 100% della viewport */
+  height: 100vh;   /* Usa tutta l'altezza della viewport */
+  max-height: 100%; /* Limita l'altezza al 100% della viewport */
+  overflow: hidden; /* Evita lo scroll */
+  box-sizing: border-box;
+  padding: 10px;
   border-radius: 10px;
-  border: 1px solid rgb(63, 63, 63);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+/* Evitare zoom automatico sull'input */
+input[type="text"], 
+textarea {
+  font-size: 16px; /* Imposta font-size a 16px per evitare il focus zoom su iOS */
+}
+
+
+  /* From Uiverse.io by mpody11 */ 
+  .messageBox {
+    width: 100%;
+    max-width: 280px; /* Limita larghezza massima */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e1e1e;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(63, 63, 63);
+  }
 .messageBox:focus-within {
   border: 1px solid #606060;
 }
-.fileUploadWrapper {
-  width: fit-content;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-#file {
-  display: none;
-}
-.fileUploadWrapper label {
-  cursor: pointer;
-  width: fit-content;
-  height: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.fileUploadWrapper label svg {
-  height: 18px;
-}
-.fileUploadWrapper label svg path {
-  transition: all 0.3s;
-}
-.fileUploadWrapper label svg circle {
-  transition: all 0.3s;
-}
-.fileUploadWrapper label:hover svg path {
-  stroke: #fff;
-}
-.fileUploadWrapper label:hover svg circle {
-  stroke: #fff;
-  fill: #3c3c3c;
-}
-.fileUploadWrapper label:hover .tooltip {
-  display: block;
-  opacity: 1;
-}
-.tooltip {
-  position: absolute;
-  top: -40px;
-  display: none;
-  opacity: 0;
-  color: white;
-  font-size: 10px;
-  text-wrap: nowrap;
-  background-color: #000;
-  padding: 6px 10px;
-  border: 1px solid #3c3c3c;
-  border-radius: 5px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.596);
-  transition: all 0.3s;
-}
 #messageInput {
-  width: 200px;
-  height: 100%;
+  font-size: 16px; /* Previene lo zoom automatico su mobile */
+  width: 100%;
   background-color: transparent;
   outline: none;
   border: none;

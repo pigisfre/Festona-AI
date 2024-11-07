@@ -5,7 +5,7 @@ import { Nlp } from '@nlpjs/nlp';
 // Other imports...
 
 
-const manager = new Nlp({ languages: ['it'], nlu: { useNoneFeature: false } });
+const manager = new Nlp({ languages: ['it'], nlu: { useNoneFeature: true } });
 
 // Rest of the code, using nlp instead of manager...
 
@@ -19,7 +19,7 @@ manager.addDocument('it', 'Posso vestirmi da Joker?', 'party.noJoker');
 manager.addDocument('it', 'Grazie', 'party.welcome');
 
 manager.addAnswer('it', 'party.date', 'La festa sarà il 20 dicembre alle ore 20:30.');
-manager.addAnswer('it', 'party.location', 'La festa si terrà a Sensorya, SS96, km.114+300, Modugno, Palo del Colle BA.');
+manager.addAnswer('it', 'party.location', 'La festa si terrà a Sensorya. Ecco a te la posizione,brutto scemo');
 manager.addAnswer('it', 'party.theme', 'Il tema della festa è Pigicon, 30esimo anniversario.');
 manager.addAnswer('it', 'party.dressCode', 'Tutti devono obbligatoriamente travestirsi a tema Marvel, DC o anime!');
 manager.addAnswer('it', 'party.noJoker', 'Spiacente, ma il travestimento da Joker non è consentito. Scegli un altro personaggio!');

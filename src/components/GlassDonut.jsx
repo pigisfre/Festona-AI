@@ -24,27 +24,23 @@ export default function GlassDonut({ isSpeaking }) {
     if (isSpeaking) {
       const interval = setInterval(() => {
         setChromaticAberration(prev => Math.min(prev + 0.02, 1)); // Incrementa fino a 1
-      }, 50); // Aggiorna ogni 50ms
+      }, 10); // Aggiorna ogni 50ms
       return () => clearInterval(interval); // Pulizia quando il chatbot non parla più
     } else {
       setChromaticAberration(0); // Reset della cromatic aberration quando non parla
     }
   }, [isSpeaking]);
 
-  // // Impostazioni del materiale per l'effetto vetro
-  // const materialProps = useControls({
-  //   thickness: { value: 0.2, min: 0, max: 3, step: 0.05 },
-  //   roughness: { value: 0, min: 0, max: 1, step: 0.1 },
-  //   transmission: { value: 1, min: 0, max: 1, step: 0.1 },
-  //   ior: { value: 1.2, min: 0, max: 3, step: 0.1 },
-  //   chromaticAberration: { value: 0.02, min: 0, max: 1 },
-  //   backside: { value: true },
-  // });
   // Animazione continua del torus
   useFrame(() => {
     if (torus.current) {
       torus.current.rotation.x += 0.02;
     }
+      // // Aggiungi rotazione sull'asse y quando isSpeaking è true
+      // if (isSpeaking) {
+       
+      //   torus.current.rotation.y += 0.02;
+      // }
   });
 
   return (
@@ -52,7 +48,7 @@ export default function GlassDonut({ isSpeaking }) {
    
    <Text
         position={[0, 0, -1]}
-        fontSize={1.3}
+        fontSize={1}
         color="white"
         anchorX="center"
         anchorY="middle"

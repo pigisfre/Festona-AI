@@ -35,6 +35,7 @@ const Chatbot = () => {
       const botResponse = await getResponse(input);
       speak(botResponse);
       console.log("Risposta del bot:", botResponse); // logga solo la risposta del bot
+      //controllo risposta sensorya. Inserire pop up con posizione google.
       setInput(''); // Resetta l'input dell'utente
     } catch (error) {
       console.error('Error getting response:', error);
@@ -76,7 +77,7 @@ const Chatbot = () => {
               fill="currentColor"
             ></path>
           </svg>
-          <span>Inizia</span>
+          <span>Start</span>
         </button>
 
       )}
