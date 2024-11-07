@@ -19,7 +19,7 @@
 /* Evitare zoom automatico sull'input */
 input[type="text"], 
 textarea {
-  font-size: 16px; /* Imposta font-size a 16px per evitare il focus zoom su iOS */
+  font-size: 10px; /* Imposta font-size a 16px per evitare il focus zoom su iOS */
 }
 
 
@@ -35,13 +35,14 @@ textarea {
     padding: 0 10px;
     border-radius: 10px;
     border: 1px solid rgb(63, 63, 63);
+    margin-bottom: 100px;
   }
 .messageBox:focus-within {
   border: 1px solid #606060;
 }
 
 #messageInput {
-  font-size: 16px; /* Previene lo zoom automatico su mobile */
+  font-size: 10px; /* Previene lo zoom automatico su mobile */
   width: 100%;
   background-color: transparent;
   outline: none;
@@ -92,6 +93,7 @@ textarea {
   border: none;
   letter-spacing: 0.05em;
   border-radius: 16px;
+  margin-bottom: 100px;
 }
 
 .startSvg {
