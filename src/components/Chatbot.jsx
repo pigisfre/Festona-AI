@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getResponse } from '../nlp';
 import './Chatbot.css';
 import Ai from './Ai';
+import { gsap } from 'gsap';
 
 const Chatbot = () => {
   const [input, setInput] = useState('');
@@ -50,6 +51,12 @@ const Chatbot = () => {
     const welcomeMessage = "Ciao a tutti, io sono FESTONA, il tuo Friendly Event Supporter That's Overly Nerdy And Entertaining! Sì, è un nome lungo, ma non preoccuparti, posso dirti anche solo 'FESTONA'. Sono qui per rispondere a tutte le tue domande sulla festa e per divertirmi con te!";
     speak(welcomeMessage);
   };
+
+  useEffect(() => {
+     // Anima il fade-in del div `.chatbot`
+     gsap.fromTo(".chatbot", { opacity: 0 }, { opacity: 1, duration: 5});
+});
+    
 
   return (
     <div className="chatbot">

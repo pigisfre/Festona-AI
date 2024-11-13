@@ -18,14 +18,6 @@
   overflow-y: auto; /* Permetti lo scrolling verticale se necessario */
 }
 
-h1 {
-  font-size: 20px;
-  color: white;
-  margin: 50px 0 10px 0; /* Riduci lo spazio sotto il titolo */
-  font-family: 'Nunito Sans', sans-serif;
-  padding : 0;
-}
-
 /* Correzioni per il body */
 body {
   background-color: #000;
@@ -40,7 +32,30 @@ body {
   box-sizing: border-box;
 }
 
-p{
-  font-size: 14px;
-  font-family: 'Nunito Sans', sans-serif;
+.title{
+  font-size: 18px;
+  margin-top: 50px;
 }
+.description{
+  font-size: 12px;
+}
+.title, .description {
+  opacity: 0; /* Inizia invisibile per l'effetto di animazione */
+
+}
+
+.title, .description {
+  opacity: 0; /* Inizia invisibile per l'effetto di animazione */
+}
+
+.scramble-letter {
+  display: inline-block;
+  opacity: 0; /* Nascondi ogni lettera all'inizio */
+  transform: translateY(-20px); /* Partono da una posizione sopra */
+  transition: transform 0.3s ease-out;
+}
+
+.scramble-letter:hover {
+  color: #ffcc00; /* Cambia colore al passaggio del mouse */
+}
+
