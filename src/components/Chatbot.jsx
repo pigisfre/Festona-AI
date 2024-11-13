@@ -54,7 +54,7 @@ const Chatbot = () => {
 
   useEffect(() => {
      // Anima il fade-in del div `.chatbot`
-     gsap.fromTo(".chatbot", { opacity: 0 }, { opacity: 1, duration: 3});
+     gsap.fromTo(".chatbot", { opacity: 0 }, { opacity: 1, duration: 0.5});
 });
     
 
