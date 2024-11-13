@@ -33,14 +33,13 @@ export default function GlassDonut({ isSpeaking }) {
 
   // Animazione continua del torus
   useFrame(() => {
-    if (torus.current) {
-      torus.current.rotation.x += 0.02;
-    }
-      // // Aggiungi rotazione sull'asse y quando isSpeaking è true
-      // if (isSpeaking) {
+  if (isSpeaking) {
        
-      //   torus.current.rotation.y += 0.02;
-      // }
+    torus.current.rotation.x += 0.04;
+       }
+       else {
+        torus.current.rotation.x += 0.02;
+       }
   });
 
   return (

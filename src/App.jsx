@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
 import Chatbot from './components/Chatbot';
-
 import './App.css';
-
-
 
 const App = () => {
   // Esegui l'animazione con GSAP quando il componente viene montato
