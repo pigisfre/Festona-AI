@@ -14,7 +14,9 @@
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
- 
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out; /* Evita transizioni complesse su mobile */
 }
 
 /* Evitare zoom automatico sull'input */
@@ -119,3 +121,10 @@ button span {
 
 
   
+
+/* Ottimizzazione delle animazioni */
+@media (max-width: 600px) {
+  .chatbot {
+    transition: none; /* Disabilita l'animazione per i dispositivi mobili più piccoli */
+  }
+}
