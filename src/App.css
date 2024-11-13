@@ -1,5 +1,10 @@
 /* App.css */
+*{
 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* Stile generale per schermi di grandi dimensioni */
 .App {
   display: flex;
@@ -7,7 +12,7 @@
   align-items: center;
   text-align: center;
   width: 100vw;
-  height: calc(100vh - var(--keyboard-height, 0px)); 
+  height: 100vh; 
   transition: height 0.3s ease; /* Aggiungi una transizione per rendere più fluido */
   font-family: 'Nunito Sans', sans-serif;
   overflow-y: auto; /* Permetti lo scrolling verticale se necessario */
@@ -16,7 +21,7 @@
 h1 {
   font-size: 20px;
   color: white;
-  margin-bottom: 10px; /* Riduci lo spazio sotto il titolo */
+  margin: 50px 0 10px 0; /* Riduci lo spazio sotto il titolo */
   font-family: 'Nunito Sans', sans-serif;
   padding : 0;
 }
