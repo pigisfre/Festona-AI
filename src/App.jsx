@@ -1,46 +1,15 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import Chatbot from './components/Chatbot';
+
 import './App.css';
+
+
 
 const App = () => {
   // Esegui l'animazione con GSAP quando il componente viene montato
   useEffect(() => {
-    // Testo "scramble" per il titolo
-    gsap.fromTo(
-      ".title",
-      { opacity: 0, y: -50 }, // Posizione iniziale delle lettere
-      {
-        opacity: 1,
-        y: 0, // Posizione finale delle lettere
-        duration: 0.3,
-        ease: "power3.out",
-        stagger: 0.05, // Ritardo tra le lettere
-        onStart: () => {
-          // Anima lettere singole
-          const titleText = document.querySelector('.title');
-          scrambleText(titleText);
-        },
-      }
-    );
 
-    // Testo "scramble" per la descrizione
-    gsap.fromTo(
-      ".description",
-      { opacity: 0, y: -30 }, // Posizione iniziale delle lettere
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power3.out",
-        stagger: 0.03,
-        onStart: () => {
-          const descText = document.querySelector('.description');
-          scrambleText(descText);
-        },
-      }
-    );
-   
 
     // Funzione per aggiornare l'altezza della pagina quando cambia la dimensione della finestra
     const handleResize = () => {

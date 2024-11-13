@@ -33,29 +33,15 @@ body {
 }
 
 .title{
+
   font-size: 18px;
   margin-top: 50px;
 }
 .description{
+
   font-size: 12px;
 }
-.title, .description {
-  opacity: 0; /* Inizia invisibile per l'effetto di animazione */
 
-}
 
-.title, .description {
-  opacity: 0; /* Inizia invisibile per l'effetto di animazione */
-}
 
-.scramble-letter {
-  display: inline-block;
-  opacity: 0; /* Nascondi ogni lettera all'inizio */
-  transform: translateY(-20px); /* Partono da una posizione sopra */
-  transition: transform 0.3s ease-out;
-}
-
-.scramble-letter:hover {
-  color: #ffcc00; /* Cambia colore al passaggio del mouse */
-}
 
