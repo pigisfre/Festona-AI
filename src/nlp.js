@@ -24,6 +24,7 @@ manager.addAnswer('it', 'party.date', 'La festa sarà il 20 dicembre alle ore 20
 manager.addAnswer('it', 'party.location', 'La festa si terrà a Sensorya. Ecco a te la posizione,brutto scemo');
 manager.addAnswer('it', 'party.theme', 'Il tema della festa è Comics');
 manager.addAnswer('it', 'party.disoneste', 'Almeno cinque');
+manager.addDocument('it', 'party.gelao', 'Ale Gelao');
 manager.addAnswer('it', 'party.dressCode', 'Tutti devono obbligatoriamente travestirsi a tema Marvel, DC o anime!');
 manager.addAnswer('it', 'party.noJoker', 'Spiacente, ma il travestimento da Joker non è consentito. Scegli un altro personaggio!');
 manager.addAnswer('it', 'party.welcome', 'Prego!');
