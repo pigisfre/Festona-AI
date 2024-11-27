@@ -8,6 +8,7 @@ const Chatbot = () => {
   const [input, setInput] = useState('');
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [showModal, setShowModal] = useState(false); // Stato per il modale
 
   // Aggiungi una lista di domande di suggerimento
   const suggestions = [
@@ -26,13 +27,9 @@ const Chatbot = () => {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'it-IT';
 
-      // Imposta lo stato di speaking solo se l'utterance inizia correttamente
       utterance.onstart = () => setIsSpeaking(true);
 
-      utterance.onend = () => {
-        console.log("Bot ha terminato di parlare."); // log per il controllo di fine parlato
-        setIsSpeaking(false);
-      };
+      utterance.onend = () => setIsSpeaking(false);
 
       window.speechSynthesis.speak(utterance);
     } else {
@@ -45,21 +42,24 @@ const Chatbot = () => {
 
     try {
       const botResponse = await getResponse(input);
+
+      if (input.toLowerCase() === 'dove si terrà la festa?') {
+        // Mostra il modale se la domanda è specifica
+        setShowModal(true);
+      }
+
       speak(botResponse);
-      console.log("Risposta del bot:", botResponse); // logga solo la risposta del bot
-      //controllo risposta sensorya. Inserire pop up con posizione google.
       setInput(''); // Resetta l'input dell'utente
     } catch (error) {
       console.error('Error getting response:', error);
       const errorMessage = 'Oops, qualcosa è andato storto!';
       speak(errorMessage);
-      console.log("Errore del bot:", errorMessage); // log errore per controllo
     }
   };
 
   const handleStartChatbot = () => {
     setShowForm(true);
-    const welcomeMessage = "Ciao a tutti, io sono FESTONA, il tuo Friendly Event Supporter That's Overly Nerdy And Entertaining! Sì, è un nome lungo, ma non preoccuparti, posso dirti anche solo 'FESTONA'. Sono qui per rispondere a tutte le tue domande sulla festa e per divertirmi con te!";
+    const welcomeMessage = "Ciao a tutti, io sono FESTONA, il tuo Friendly Event Supporter That's Overly Nerdy And Entertaining! Sì, è un nome lungo, ma non preoccuparti, puoi chiamarmi FESTONA. Sono qui per rispondere a tutte le tue domande sulla festa e per divertirci insieme!";
     speak(welcomeMessage);
   };
 
@@ -67,32 +67,30 @@ const Chatbot = () => {
     const animation = gsap.fromTo(
       ".chatbot",
       { opacity: 0 },
-      { opacity: 1, duration: 0.5 } // Durata ridotta per maggiore fluidità
+      { opacity: 1, duration: 0.5 }
     );
-  
-    // Pulizia dell'animazione in caso di rimozione del componente
-    return () => {
-      animation.kill();
-    };
+
+    return () => animation.kill();
   }, []);
 
-  // Gestisci il click sulla chip
   const handleSuggestionClick = (suggestion) => {
     setInput(suggestion);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
     <div className="chatbot">
       <Ai isSpeaking={isSpeaking} />
 
-      {/* Bottone per avviare il chatbot */}
       {!showForm && (
-        <button className='start' onClick={handleStartChatbot}>
+        <button className="start" onClick={handleStartChatbot}>
           Start
         </button>
       )}
 
-      {/* Aggiungi le chip per le domande di suggerimento sopra il form */}
       {showForm && (
         <div className="suggestions">
           {suggestions.map((suggestion, index) => (
@@ -107,10 +105,8 @@ const Chatbot = () => {
         </div>
       )}
 
-      {/* Form per il messaggio */}
       {showForm && (
         <>
-          {isSpeaking}
           <div className="messageBox">
             <input
               id="messageInput"
@@ -127,6 +123,25 @@ const Chatbot = () => {
             </button>
           </div>
         </>
+      )}
+
+      {/* Modale per la posizione della festa */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <p>La festa si terrà presso Sensorya, SS96, km.114+300, Modugno, Palo del Colle BA.</p>
+            <a
+              href="https://www.google.com/maps?q=Sensorya,SS96,km.114+300,Modugno,Palo+del+Colle+BA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="modal-button"
+            >
+              Apri in Maps
+            </a>
+            <span onClick={closeModal} className="close-modal">&times;</span>
+
+          </div>
+        </div>
       )}
     </div>
   );
