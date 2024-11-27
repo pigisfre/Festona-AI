@@ -16,9 +16,7 @@ const Chatbot = () => {
     'Dove si terrà la festa?',
     'Qual è il tema della festa?',
     'Ci si deve vestire a tema?',
-    'Posso vestirmi da Joker?',
-    'Quante disoneste ci sono?',
-    'Chi è la più disonesta?'
+    'Posso vestirmi da Joker?'
   ];
 
   const speak = (text) => {
