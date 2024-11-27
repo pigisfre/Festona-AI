@@ -131,7 +131,7 @@ const Chatbot = () => {
           <div className="modal-content">
             <p>La festa si terrà presso Sensorya, SS96, km.114+300, Modugno, Palo del Colle BA.</p>
             <a
-              href="https://www.google.com/maps?q=Sensorya,SS96,km.114+300,Modugno,Palo+del+Colle+BA"
+              href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x1347ed5699244557:0x834bf732ae6c1588?sa=X&ved=1t:8290&ictx=111"
               target="_blank"
               rel="noopener noreferrer"
               className="modal-button"
