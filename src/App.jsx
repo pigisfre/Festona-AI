@@ -24,8 +24,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="title">F.E.S.T.O.N.A</h1>
-      <p className="description">(Friendly Event Supporter That’s Overly Nerdy And Entertaining)</p>
       
         <Chatbot /> 
       

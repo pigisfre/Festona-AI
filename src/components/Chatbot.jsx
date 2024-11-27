@@ -9,6 +9,17 @@ const Chatbot = () => {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
+  // Aggiungi una lista di domande di suggerimento
+  const suggestions = [
+    'Quando è la festa?',
+    'Dove si terrà la festa?',
+    'Qual è il tema della festa?',
+    'Ci si deve vestire a tema?',
+    'Posso vestirmi da Joker?',
+    'Quante disoneste ci sono?',
+    'Chi è la più disonesta?'
+  ];
+
   const speak = (text) => {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
@@ -64,25 +75,36 @@ const Chatbot = () => {
       animation.kill();
     };
   }, []);
-  
+
+  // Gestisci il click sulla chip
+  const handleSuggestionClick = (suggestion) => {
+    setInput(suggestion);
+  };
 
   return (
     <div className="chatbot">
-
-      
-<Ai isSpeaking={isSpeaking} />
-
-      
- 
-      
-      {/* <ParticleSphere isSpeaking={isSpeaking} />  */}
+      <Ai isSpeaking={isSpeaking} />
 
       {/* Bottone per avviare il chatbot */}
       {!showForm && (
         <button className='start' onClick={handleStartChatbot}>
-          <span>Start</span>
+          Start
         </button>
+      )}
 
+      {/* Aggiungi le chip per le domande di suggerimento sopra il form */}
+      {showForm && (
+        <div className="suggestions">
+          {suggestions.map((suggestion, index) => (
+            <div
+              key={index}
+              className="chip"
+              onClick={() => handleSuggestionClick(suggestion)}
+            >
+              {suggestion}
+            </div>
+          ))}
+        </div>
       )}
 
       {/* Form per il messaggio */}

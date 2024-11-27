@@ -102,6 +102,56 @@ textarea {
 
 
 
+.suggestions {
+  display: flex;
+  overflow-x: auto;  /* Aggiunge lo scroll orizzontale */
+  gap: 10px;
+  padding: 10px 0;
+  width: 100%;  /* Assicura che le chips occupino tutta la larghezza del form */
+  max-width: 280px;
+  box-sizing: border-box;
+  scrollbar-width: thin; /* Per Firefox, usa una scrollbar sottile */
+  scrollbar-color: #bbb #212121; /* Colore della scrollbar in Firefox (grigio chiaro su sfondo scuro) */
+}
+
+.chip {
+  background-color: #212121;  /* Colore richiesto */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 0.3s;
+  flex-shrink: 0;  /* Impedisce che le chips si comprimano */
+  display: flex;  /* Aggiungi il display flex per allineare il contenuto */
+  justify-content: center;  /* Allinea orizzontalmente al centro */
+  align-items: center;  /* Allinea verticalmente al centro */
+}
+
+.chip:hover {
+  background-color: #333333;
+}
+
+.suggestions::-webkit-scrollbar {
+  width: 6px; /* Larghezza della scrollbar orizzontale (simile a quella di iPhone) */
+  height: 6px; /* Altezza della scrollbar verticale */
+}
+
+.suggestions::-webkit-scrollbar-track {
+  background-color: #212121; /* Colore dello sfondo della track (simile al background delle chips) */
+  border-radius: 10px; /* Angoli arrotondati per una visualizzazione più fluida */
+}
+
+.suggestions::-webkit-scrollbar-thumb {
+  background-color: #bbb; /* Colore del pollice (barra scorrevole) */
+  border-radius: 10px; /* Angoli arrotondati */
+  border: 2px solid #212121; /* Bordo per il pollice (in modo che sia visibile su sfondi scuri) */
+}
+
+.suggestions::-webkit-scrollbar-thumb:hover {
+  background-color: #888; /* Colore del pollice quando è sopra di esso */
+}
+
 
 
 
@@ -113,5 +163,21 @@ textarea {
 @media (max-width: 600px) {
   .chatbot {
     transition: none; /* Disabilita l'animazione per i dispositivi mobili più piccoli */
+  }
+}
+
+/* Nascondi la scrollbar su dispositivi mobili */
+@media (max-width: 768px) {
+  .suggestions {
+    overflow-x: scroll;  /* Mantiene la funzionalità di scorrimento orizzontale */
+  }
+
+  .suggestions::-webkit-scrollbar {
+    display: none;  /* Nasconde la scrollbar in modo che non sia visibile */
+  }
+
+  .suggestions {
+    -ms-overflow-style: none;  /* Per Internet Explorer */
+    scrollbar-width: none;  /* Per Firefox */
   }
 }
