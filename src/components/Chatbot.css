@@ -202,7 +202,33 @@ textarea {
 }
 
 
+.tutorial{
+  display:flex;
+  flex-direction: column;
+  background-color: none;
 
+}
+.tutorial p{
+  font-size: 10px;
+}
+
+.tutorial svg{
+  height: 20px;
+}
+
+/* Animazione di comparsa e scomparsa */
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.tutorial {
+  animation: fadeInOut 2s infinite; /* L'animazione dura 2 secondi e si ripete all'infinito */
+}
 
 
 
